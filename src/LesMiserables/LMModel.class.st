@@ -14,6 +14,8 @@ LMModel >> create [
 	"self new create"
 	| str allNames |
 	str := self csv readStream.
+	
+	"We create the coappearances"
 	coappearances :=(NeoCSVReader on: str) 
 		skipHeader;
 		recordClass: LMCoappearance; 
@@ -22,14 +24,19 @@ LMModel >> create [
 		addField: #character2:;
 		addIntegerField: #empty:;
 		upToEnd.
-		
+	
+	"We create the characters"
 	characters := OrderedCollection new.
 	allNames := (coappearances flatCollect: [ :c | { c  character1 . c  character2 } ]) asSet asSortedCollection.
 	characters := allNames collect: [ :n | LMCharacter new name: n ].
 	
 	coappearances do: [ :co |
+		"Each coappearance objects has two characters"
 		co character1: (characters detect: [ :ch | ch name = co character1 ]).
 		co character2: (characters detect: [ :ch | ch name = co character2 ]).
+		
+		co character1 addCoapperance: co.
+		co character2 addCoapperance: co.
 		 ].
 
 ]
