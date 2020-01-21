@@ -2,6 +2,8 @@
 
 This GitHub repository provides a small model describing from [Les Miserables](http://konect.uni-koblenz.de/networks/moreno_lesmis).
 
+This dataset is used as a showcase by [Roassal](https://github.com/ObjectProfile/Roassal3)
+
 It can be loaded using:
 
 ```Smalltalk
