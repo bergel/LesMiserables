@@ -31,6 +31,7 @@ LMCoappearance >> character2: anObject [
 
 { #category : #'as yet unclassified' }
 LMCoappearance >> empty: ignore [
+	"To make NeoCSV happy"
 ]
 
 { #category : #accessing }

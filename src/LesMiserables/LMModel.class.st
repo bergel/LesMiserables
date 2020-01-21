@@ -8,10 +8,24 @@ Class {
 	#category : #LesMiserables
 }
 
+{ #category : #accessing }
+LMModel >> characters [
+	"Return the list of characters"
+	^ characters
+]
+
+{ #category : #accessing }
+LMModel >> coappearances [
+	"Return the list of coappearances"
+	^ coappearances 
+]
+
 { #category : #operations }
 LMModel >> create [
+	"Public Method: 
+	Main method to obtain an exploitable model"
+	
 	<script: 'self new create inspect'>
-	"self new create"
 	| str allNames |
 	str := self csv readStream.
 	
@@ -41,7 +55,7 @@ LMModel >> create [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #data }
 LMModel >> csv [
 	"From http://users.csc.calpoly.edu/~dekhtyar/466-Fall2010/labs/lab07.html"
 ^ '"character1","occurences","character2","notUsed"

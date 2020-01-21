@@ -13,8 +13,9 @@ LMCharacter >> addCoapperance: co [
 	coappearances add: co
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'accessing - computed' }
 LMCharacter >> characters [
+	"Return the character for which I coappear with"
 	^ (coappearances flatCollect: [ :co | Array with: co character1 with: co character2 ]) 			removeDuplicates;
 				copyWithout: self
 ]
@@ -35,8 +36,9 @@ LMCharacter >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'accessing - computed' }
 LMCharacter >> numberOfCoappearances [
+	"Return the number of coappearances"
 	^ coappearances size
 ]
 
